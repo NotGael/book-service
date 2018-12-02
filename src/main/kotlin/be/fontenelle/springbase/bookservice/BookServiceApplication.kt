@@ -18,15 +18,3 @@ class BookServiceApplication
 fun main(args: Array<String>) {
     runApplication<BookServiceApplication>(*args)
 }
-
-val books = listOf(Book(1L, "author1", "title1"), Book(2L, "author2", "title2"))
-
-@GetMapping("")
-fun findAllBooks(): List<Book> {
-    return books
-}
-
-@GetMapping("/{bookId}")
-fun findBook(@PathVariable bookId:Long): Book? {
-    return books.filter{ b -> b.id == bookId }.firstOrNull()
-}
